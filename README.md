@@ -33,14 +33,14 @@
 SJTU 
     <a href="https://oc.sjtu.edu.cn/">Canvas</a>
     <a href="https://mail.sjtu.edu.cn/">邮箱</a>
-    <a href="https://yjs.sjtu.edu.cn/">研究生</a>
+    <a href="http://yjs.sjtu.edu.cn/gsapp/sys/emaphome/portal/index.do">研究生</a>
     <a href="https://my.sjtu.edu.cn/">交我办</a>
-    <a href="https://e-chem.sjtu.edu.cn/">化学品平台</a>
+    <a href="http://e-chem.sjtu.edu.cn/lab/fe/orders/home">化学品平台</a>
     <a href="https://li.si.sjtu.edu.cn/">软件授权中心</a>
     <a href="https://3d.si.sjtu.edu.cn/">3D打印平台</a>
-    <a href="https://lib.sjtu.edu.cn/">图书馆</a>
-    <a href="https://job.sjtu.edu.cn/">就业信息网</a>
-    <a href="https://jdcw.sjtu.edu.cn/">财务处</a>
+    <a href="https://www.lib.sjtu.edu.cn/">图书馆</a>
+    <a href="https://www.job.sjtu.edu.cn/">就业信息网</a>
+    <a href="https://www.jdcw.sjtu.edu.cn/">财务处</a>
     <a href="https://jbox.sjtu.edu.cn/">交大云盘</a>
     <a href="https://pt.sjtu.edu.cn/">交大葡萄</a>
     <a href="https://thesis.lib.sjtu.edu.cn/">学位论文</a>    
