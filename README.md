@@ -23,3 +23,10 @@
     <a href="https://www.yandex.com">QQ</a>
     <a href="https://www.kugou.com">酷狗</a>
     <a href="https://www.kuwo.cn">酷我</a>
+    
+文献
+    <a href="https://acp.copernicus.org/">ACP</a>
+    <a href="https://pubs.acs.org/journal/esthag">EST</a>
+    <a href="https://www.webofscience.com/wos/alldb/basic-search">Web of Science搜索</a>
+    <a href="https://www.cnki.net">知网</a>
+    
