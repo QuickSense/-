@@ -43,4 +43,4 @@ SJTU
     <a href="https://www.jdcw.sjtu.edu.cn/">财务处</a>
     <a href="https://jbox.sjtu.edu.cn/">交大云盘</a>
     <a href="https://pt.sjtu.edu.cn/">交大葡萄</a>
-    <a href="https://www.thesis.lib.sjtu.edu.cn/">学位论文</a>    
+    <a href="https://thesis.lib.sjtu.edu.cn/">学位论文</a>    
