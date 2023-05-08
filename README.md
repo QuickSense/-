@@ -48,7 +48,7 @@ SJTU
     
     
 # 小游戏
-[投篮] (http://t.cn/AisizCcW)
+[投篮](http://t.cn/AisizCcW)
 
 
 [见缝插针]( http://t.cn/E9tsC3p)
