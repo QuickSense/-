@@ -67,7 +67,7 @@ SJTU
 
 [打掉砖块](http://t.cn/RcAimvm)
 
-大宝剑 ](http://t.cn/A6PLFX5p
+[大宝剑 ](http://t.cn/A6PLFX5p)
 
 [十滴水]( http://t.cn/A6PLFX5W)
 
