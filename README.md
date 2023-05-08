@@ -63,7 +63,7 @@ SJTU
 
 [刮腿毛](http://t.cn/A6PyP7Cd )
 
-[能打多少次](http://t.cn/A6PLFX5u
+[能打多少次](http://t.cn/A6PLFX5u)
 
 [打掉砖块](http://t.cn/RcAimvm)
 
