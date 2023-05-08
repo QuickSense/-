@@ -113,7 +113,6 @@ SJTU
 
 [搭桥](http://t.cn/A6P5PvvX)
 
-![image](https://user-images.githubusercontent.com/49303951/236718207-a496c96e-d5ea-4f3a-950e-db42a83b66e0.png)
 
 
 "陶喆-月亮代表谁的心"
