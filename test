@@ -1,0 +1,529 @@
+SELECT count(*) FROM singer concert_singer
+
+SELECT count(*) FROM singer concert_singer
+
+SELECT name , country , age FROM singer ORDER BY age DESC concert_singer
+
+SELECT name , country , age FROM singer ORDER BY age DESC concert_singer
+
+SELECT avg(age) , min(age) , max(age) FROM singer WHERE country = '法国' concert_singer
+
+SELECT avg(age) , min(age) , max(age) FROM singer WHERE country = '法国' concert_singer
+
+SELECT song_name , song_release_year FROM singer ORDER BY age LIMIT 1 concert_singer
+
+SELECT song_name , song_release_year FROM singer ORDER BY age LIMIT 1 concert_singer
+
+SELECT DISTINCT country FROM singer WHERE age > 20 concert_singer
+
+SELECT DISTINCT country FROM singer WHERE age > 20 concert_singer
+
+SELECT country , count(*) FROM singer GROUP BY country concert_singer
+
+SELECT country , count(*) FROM singer GROUP BY country concert_singer
+
+SELECT song_name FROM singer WHERE age > (SELECT avg(age) FROM singer) concert_singer
+
+SELECT song_name FROM singer WHERE age > (SELECT avg(age) FROM singer) concert_singer
+
+SELECT avg(capacity) , max(capacity) FROM stadium concert_singer
+
+SELECT avg(capacity) , max(capacity) FROM stadium concert_singer
+
+SELECT name , capacity FROM stadium ORDER BY average DESC LIMIT 1 concert_singer
+
+SELECT name , capacity FROM stadium ORDER BY average DESC LIMIT 1 concert_singer
+
+SELECT count(*) FROM concert WHERE YEAR = 2014 OR YEAR = 2015 concert_singer
+
+SELECT count(*) FROM concert WHERE YEAR = 2014 OR YEAR = 2015 concert_singer
+
+SELECT T2.name , count(*) FROM concert AS T1 JOIN stadium AS T2 ON T1.stadium_id = T2.stadium_id GROUP BY T1.stadium_id concert_singer
+
+SELECT T2.name , count(*) FROM concert AS T1 JOIN stadium AS T2 ON T1.stadium_id = T2.stadium_id GROUP BY T1.stadium_id concert_singer
+
+SELECT T2.name , T2.capacity FROM concert AS T1 JOIN stadium AS T2 ON T1.stadium_id = T2.stadium_id WHERE T1.year >= 2014 GROUP BY T2.stadium_id ORDER BY count(*) DESC LIMIT 1 concert_singer
+
+SELECT T2.name , T2.capacity FROM concert AS T1 JOIN stadium AS T2 ON T1.stadium_id = T2.stadium_id WHERE T1.year >= 2014 GROUP BY T2.stadium_id ORDER BY count(*) DESC LIMIT 1 concert_singer
+
+SELECT YEAR FROM concert GROUP BY YEAR ORDER BY count(*) DESC LIMIT 1 concert_singer
+
+SELECT YEAR FROM concert GROUP BY YEAR ORDER BY count(*) DESC LIMIT 1 concert_singer
+
+SELECT name FROM stadium WHERE stadium_id NOT IN (SELECT stadium_id FROM concert) concert_singer
+
+SELECT name FROM stadium WHERE stadium_id NOT IN (SELECT stadium_id FROM concert) concert_singer
+
+SELECT country FROM singer WHERE age > 40 INTERSECT SELECT country FROM singer WHERE age < 30 concert_singer
+
+SELECT name FROM stadium EXCEPT SELECT T2.name FROM concert AS T1 JOIN stadium AS T2 ON T1.stadium_id = T2.stadium_id WHERE T1.year = 2014 concert_singer
+
+SELECT name FROM stadium EXCEPT SELECT T2.name FROM concert AS T1 JOIN stadium AS T2 ON T1.stadium_id = T2.stadium_id WHERE T1.year = 2014 concert_singer
+
+SELECT T2.concert_name , T2.theme , count(*) FROM singer_in_concert AS T1 JOIN concert AS T2 ON T1.concert_id = T2.concert_id GROUP BY T2.concert_id concert_singer
+
+SELECT T2.concert_name , T2.theme , count(*) FROM singer_in_concert AS T1 JOIN concert AS T2 ON T1.concert_id = T2.concert_id GROUP BY T2.concert_id concert_singer
+
+SELECT T2.name , count(*) FROM singer_in_concert AS T1 JOIN singer AS T2 ON T1.singer_id = T2.singer_id GROUP BY T2.singer_id concert_singer
+
+SELECT T2.name , count(*) FROM singer_in_concert AS T1 JOIN singer AS T2 ON T1.singer_id = T2.singer_id GROUP BY T2.singer_id concert_singer
+
+SELECT T2.name FROM singer_in_concert AS T1 JOIN singer AS T2 ON T1.singer_id = T2.singer_id JOIN concert AS T3 ON T1.concert_id = T3.concert_id WHERE T3.year = 2014 concert_singer
+
+SELECT T2.name FROM singer_in_concert AS T1 JOIN singer AS T2 ON T1.singer_id = T2.singer_id JOIN concert AS T3 ON T1.concert_id = T3.concert_id WHERE T3.year = 2014 concert_singer
+
+SELECT name , country FROM singer WHERE song_name LIKE '你' concert_singer
+
+SELECT name , country FROM singer WHERE song_name LIKE '你' concert_singer
+
+SELECT T2.name , T2.location FROM concert AS T1 JOIN stadium AS T2 ON T1.stadium_id = T2.stadium_id WHERE T1.Year = 2014 INTERSECT SELECT T2.name , T2.location FROM concert AS T1 JOIN stadium AS T2 ON T1.stadium_id = T2.stadium_id WHERE T1.Year = 2015 concert_singer
+
+SELECT T2.name , T2.location FROM concert AS T1 JOIN stadium AS T2 ON T1.stadium_id = T2.stadium_id WHERE T1.Year = 2014 INTERSECT SELECT T2.name , T2.location FROM concert AS T1 JOIN stadium AS T2 ON T1.stadium_id = T2.stadium_id WHERE T1.Year = 2015 concert_singer
+
+SELECT count(*) FROM concert AS T1 JOIN stadium AS T2 ON T1.stadium_id = T2.stadium_id ORDER BY T2.Capacity DESC LIMIT 1 concert_singer
+
+SELECT count(*) FROM concert AS T1 JOIN stadium AS T2 ON T1.stadium_id = T2.stadium_id ORDER BY T2.Capacity DESC LIMIT 1 concert_singer
+
+SELECT major , age FROM student WHERE stuid NOT IN (SELECT T1.stuid FROM student AS T1 JOIN has_pet AS T2 ON T1.stuid = T2.stuid JOIN pets AS T3 ON T3.petid = T2.petid WHERE T3.pettype = '猫') pets_1
+
+SELECT major , age FROM student WHERE stuid NOT IN (SELECT T1.stuid FROM student AS T1 JOIN has_pet AS T2 ON T1.stuid = T2.stuid JOIN pets AS T3 ON T3.petid = T2.petid WHERE T3.pettype = '猫') pets_1
+
+SELECT stuid FROM student EXCEPT SELECT T1.stuid FROM student AS T1 JOIN has_pet AS T2 ON T1.stuid = T2.stuid JOIN pets AS T3 ON T3.petid = T2.petid WHERE T3.pettype = '猫' pets_1
+
+SELECT stuid FROM student EXCEPT SELECT T1.stuid FROM student AS T1 JOIN has_pet AS T2 ON T1.stuid = T2.stuid JOIN pets AS T3 ON T3.petid = T2.petid WHERE T3.pettype = '猫' pets_1
+
+SELECT avg(age) FROM student WHERE stuid NOT IN (SELECT T1.stuid FROM student AS T1 JOIN has_pet AS T2 ON T1.stuid = T2.stuid) pets_1
+
+SELECT avg(age) FROM student WHERE stuid NOT IN (SELECT T1.stuid FROM student AS T1 JOIN has_pet AS T2 ON T1.stuid = T2.stuid) pets_1
+
+SELECT count(*) FROM employee employee_hire_evaluation
+
+SELECT count(*) FROM employee employee_hire_evaluation
+
+SELECT name FROM employee ORDER BY age employee_hire_evaluation
+
+SELECT name FROM employee ORDER BY age employee_hire_evaluation
+
+SELECT count(*) , city FROM employee GROUP BY city employee_hire_evaluation
+
+SELECT count(*) , city FROM employee GROUP BY city employee_hire_evaluation
+
+SELECT city FROM employee WHERE age < 30 GROUP BY city HAVING count(*) > 1 employee_hire_evaluation
+
+SELECT city FROM employee WHERE age < 30 GROUP BY city HAVING count(*) > 1 employee_hire_evaluation
+
+SELECT count(*) , LOCATION FROM shop GROUP BY LOCATION employee_hire_evaluation
+
+SELECT count(*) , LOCATION FROM shop GROUP BY LOCATION employee_hire_evaluation
+
+SELECT manager_name , district FROM shop ORDER BY number_products DESC LIMIT 1 employee_hire_evaluation
+
+SELECT manager_name , district FROM shop ORDER BY number_products DESC LIMIT 1 employee_hire_evaluation
+
+SELECT min(Number_products) , max(Number_products) FROM shop employee_hire_evaluation
+
+SELECT min(Number_products) , max(Number_products) FROM shop employee_hire_evaluation
+
+SELECT name , LOCATION , district FROM shop ORDER BY number_products DESC employee_hire_evaluation
+
+SELECT name , LOCATION , district FROM shop ORDER BY number_products DESC employee_hire_evaluation
+
+SELECT name FROM shop WHERE number_products > (SELECT avg(number_products) FROM shop) employee_hire_evaluation
+
+SELECT name FROM shop WHERE number_products > (SELECT avg(number_products) FROM shop) employee_hire_evaluation
+
+SELECT t1.name FROM employee AS t1 JOIN evaluation AS t2 ON t1.Employee_ID = t2.Employee_ID GROUP BY t2.Employee_ID ORDER BY count(*) DESC LIMIT 1 employee_hire_evaluation
+
+SELECT t1.name FROM employee AS t1 JOIN evaluation AS t2 ON t1.Employee_ID = t2.Employee_ID GROUP BY t2.Employee_ID ORDER BY count(*) DESC LIMIT 1 employee_hire_evaluation
+
+SELECT t1.name FROM employee AS t1 JOIN evaluation AS t2 ON t1.Employee_ID = t2.Employee_ID ORDER BY t2.bonus DESC LIMIT 1 employee_hire_evaluation
+
+SELECT t1.name FROM employee AS t1 JOIN evaluation AS t2 ON t1.Employee_ID = t2.Employee_ID ORDER BY t2.bonus DESC LIMIT 1 employee_hire_evaluation
+
+SELECT name FROM employee WHERE Employee_ID NOT IN (SELECT Employee_ID FROM evaluation) employee_hire_evaluation
+
+SELECT name FROM employee WHERE Employee_ID NOT IN (SELECT Employee_ID FROM evaluation) employee_hire_evaluation
+
+SELECT t2.name FROM hiring AS t1 JOIN shop AS t2 ON t1.shop_id = t2.shop_id GROUP BY t1.shop_id ORDER BY count(*) DESC LIMIT 1 employee_hire_evaluation
+
+SELECT t2.name FROM hiring AS t1 JOIN shop AS t2 ON t1.shop_id = t2.shop_id GROUP BY t1.shop_id ORDER BY count(*) DESC LIMIT 1 employee_hire_evaluation
+
+SELECT name FROM shop WHERE shop_id NOT IN (SELECT shop_id FROM hiring) employee_hire_evaluation
+
+SELECT name FROM shop WHERE shop_id NOT IN (SELECT shop_id FROM hiring) employee_hire_evaluation
+
+SELECT count(*) , t2.name FROM hiring AS t1 JOIN shop AS t2 ON t1.shop_id = t2.shop_id GROUP BY t2.name employee_hire_evaluation
+
+SELECT count(*) , t2.name FROM hiring AS t1 JOIN shop AS t2 ON t1.shop_id = t2.shop_id GROUP BY t2.name employee_hire_evaluation
+
+SELECT sum(bonus) FROM evaluation employee_hire_evaluation
+
+SELECT sum(bonus) FROM evaluation employee_hire_evaluation
+
+SELECT * FROM hiring employee_hire_evaluation
+
+SELECT * FROM hiring employee_hire_evaluation
+
+SELECT count(DISTINCT LOCATION) FROM shop employee_hire_evaluation
+
+SELECT count(DISTINCT LOCATION) FROM shop employee_hire_evaluation
+
+SELECT count(*) FROM Documents cre_Doc_Template_Mgt
+
+SELECT count(*) FROM Documents cre_Doc_Template_Mgt
+
+SELECT document_id , document_name , document_description FROM Documents cre_Doc_Template_Mgt
+
+SELECT document_id , document_name , document_description FROM Documents cre_Doc_Template_Mgt
+
+SELECT document_name , template_id FROM Documents WHERE Document_Description LIKE "w" cre_Doc_Template_Mgt
+
+SELECT document_name , template_id FROM Documents WHERE Document_Description LIKE "w" cre_Doc_Template_Mgt
+
+SELECT document_id , template_id , Document_Description FROM Documents WHERE document_name = "罗超的简历" cre_Doc_Template_Mgt
+
+SELECT document_id , template_id , Document_Description FROM Documents WHERE document_name = "罗超的简历" cre_Doc_Template_Mgt
+
+SELECT count(DISTINCT template_id) FROM Documents cre_Doc_Template_Mgt
+
+SELECT count(DISTINCT template_id) FROM Documents cre_Doc_Template_Mgt
+
+SELECT count(*) FROM Documents AS T1 JOIN Templates AS T2 ON T1.Template_ID = T2.Template_ID WHERE T2.Template_Type_Code = 'PPT' cre_Doc_Template_Mgt
+
+SELECT count(*) FROM Documents AS T1 JOIN Templates AS T2 ON T1.Template_ID = T2.Template_ID WHERE T2.Template_Type_Code = 'PPT' cre_Doc_Template_Mgt
+
+SELECT template_id , count(*) FROM Documents GROUP BY template_id cre_Doc_Template_Mgt
+
+SELECT template_id , count(*) FROM Documents GROUP BY template_id cre_Doc_Template_Mgt
+
+SELECT T1.template_id , T2.Template_Type_Code FROM Documents AS T1 JOIN Templates AS T2 ON T1.template_id = T2.template_id GROUP BY T1.template_id ORDER BY count(*) DESC LIMIT 1 cre_Doc_Template_Mgt
+
+SELECT T1.template_id , T2.Template_Type_Code FROM Documents AS T1 JOIN Templates AS T2 ON T1.template_id = T2.template_id GROUP BY T1.template_id ORDER BY count(*) DESC LIMIT 1 cre_Doc_Template_Mgt
+
+SELECT template_id FROM Documents GROUP BY template_id HAVING count(*) > 1 cre_Doc_Template_Mgt
+
+SELECT template_id FROM Documents GROUP BY template_id HAVING count(*) > 1 cre_Doc_Template_Mgt
+
+SELECT template_id FROM Templates EXCEPT SELECT template_id FROM Documents cre_Doc_Template_Mgt
+
+SELECT template_id FROM Templates EXCEPT SELECT template_id FROM Documents cre_Doc_Template_Mgt
+
+SELECT count(*) FROM Templates cre_Doc_Template_Mgt
+
+SELECT count(*) FROM Templates cre_Doc_Template_Mgt
+
+SELECT template_id , version_number , template_type_code FROM Templates cre_Doc_Template_Mgt
+
+SELECT template_id , version_number , template_type_code FROM Templates cre_Doc_Template_Mgt
+
+SELECT DISTINCT template_type_code FROM Templates cre_Doc_Template_Mgt
+
+SELECT DISTINCT template_type_code FROM Templates cre_Doc_Template_Mgt
+
+SELECT template_id FROM Templates WHERE template_type_code = "PP" OR template_type_code = "PPT" cre_Doc_Template_Mgt
+
+SELECT template_id FROM Templates WHERE template_type_code = "PP" OR template_type_code = "PPT" cre_Doc_Template_Mgt
+
+SELECT count(*) FROM Templates WHERE template_type_code = "简历" cre_Doc_Template_Mgt
+
+SELECT count(*) FROM Templates WHERE template_type_code = "简历" cre_Doc_Template_Mgt
+
+SELECT version_number , template_type_code FROM Templates WHERE version_number > 5 cre_Doc_Template_Mgt
+
+SELECT version_number , template_type_code FROM Templates WHERE version_number > 5 cre_Doc_Template_Mgt
+
+SELECT template_type_code , count(*) FROM Templates GROUP BY template_type_code cre_Doc_Template_Mgt
+
+SELECT template_type_code , count(*) FROM Templates GROUP BY template_type_code cre_Doc_Template_Mgt
+
+SELECT template_type_code FROM Templates GROUP BY template_type_code ORDER BY count(*) DESC LIMIT 1 cre_Doc_Template_Mgt
+
+SELECT template_type_code FROM Templates GROUP BY template_type_code ORDER BY count(*) DESC LIMIT 1 cre_Doc_Template_Mgt
+
+SELECT template_type_code FROM Templates GROUP BY template_type_code HAVING count(*) < 3 cre_Doc_Template_Mgt
+
+SELECT template_type_code FROM Templates GROUP BY template_type_code HAVING count(*) < 3 cre_Doc_Template_Mgt
+
+SELECT T1.template_type_code FROM Templates AS T1 JOIN Documents AS T2 ON T1.template_id = T2.template_id WHERE T2.document_name = "数据库" cre_Doc_Template_Mgt
+
+SELECT T1.template_type_code FROM Templates AS T1 JOIN Documents AS T2 ON T1.template_id = T2.template_id WHERE T2.document_name = "数据库" cre_Doc_Template_Mgt
+
+SELECT T2.document_name FROM Templates AS T1 JOIN Documents AS T2 ON T1.template_id = T2.template_id WHERE T1.template_type_code = "BK" cre_Doc_Template_Mgt
+
+SELECT T2.document_name FROM Templates AS T1 JOIN Documents AS T2 ON T1.template_id = T2.template_id WHERE T1.template_type_code = "BK" cre_Doc_Template_Mgt
+
+SELECT T1.template_type_code , count(*) FROM Templates AS T1 JOIN Documents AS T2 ON T1.template_id = T2.template_id GROUP BY T1.template_type_code cre_Doc_Template_Mgt
+
+SELECT T1.template_type_code , count(*) FROM Templates AS T1 JOIN Documents AS T2 ON T1.template_id = T2.template_id GROUP BY T1.template_type_code cre_Doc_Template_Mgt
+
+SELECT T1.template_type_code FROM Templates AS T1 JOIN Documents AS T2 ON T1.template_id = T2.template_id GROUP BY T1.template_type_code ORDER BY count(*) DESC LIMIT 1 cre_Doc_Template_Mgt
+
+SELECT T1.template_type_code FROM Templates AS T1 JOIN Documents AS T2 ON T1.template_id = T2.template_id GROUP BY T1.template_type_code ORDER BY count(*) DESC LIMIT 1 cre_Doc_Template_Mgt
+
+SELECT template_type_code FROM Templates EXCEPT SELECT template_type_code FROM Templates AS T1 JOIN Documents AS T2 ON T1.template_id = T2.template_id cre_Doc_Template_Mgt
+
+SELECT template_type_code FROM Templates EXCEPT SELECT template_type_code FROM Templates AS T1 JOIN Documents AS T2 ON T1.template_id = T2.template_id cre_Doc_Template_Mgt
+
+SELECT template_type_code , template_type_description FROM Ref_template_types cre_Doc_Template_Mgt
+
+SELECT template_type_code , template_type_description FROM Ref_template_types cre_Doc_Template_Mgt
+
+SELECT template_type_description FROM Ref_template_types WHERE template_type_code = "广告" cre_Doc_Template_Mgt
+
+SELECT template_type_description FROM Ref_template_types WHERE template_type_code = "广告" cre_Doc_Template_Mgt
+
+SELECT template_type_code FROM Ref_template_types WHERE template_type_description = "书本" cre_Doc_Template_Mgt
+
+SELECT template_type_code FROM Ref_template_types WHERE template_type_description = "书本" cre_Doc_Template_Mgt
+
+SELECT DISTINCT T1.template_type_description FROM Ref_template_types AS T1 JOIN Templates AS T2 ON T1.template_type_code = T2.template_type_code JOIN Documents AS T3 ON T2.Template_ID = T3.template_ID cre_Doc_Template_Mgt
+
+SELECT DISTINCT T1.template_type_description FROM Ref_template_types AS T1 JOIN Templates AS T2 ON T1.template_type_code = T2.template_type_code JOIN Documents AS T3 ON T2.Template_ID = T3.template_ID cre_Doc_Template_Mgt
+
+SELECT T2.template_id FROM Ref_template_types AS T1 JOIN Templates AS T2 ON T1.template_type_code = T2.template_type_code WHERE T1.template_type_description = "演示" cre_Doc_Template_Mgt
+
+SELECT T2.template_id FROM Ref_template_types AS T1 JOIN Templates AS T2 ON T1.template_type_code = T2.template_type_code WHERE T1.template_type_description = "演示" cre_Doc_Template_Mgt
+
+SELECT count(*) FROM Paragraphs cre_Doc_Template_Mgt
+
+SELECT count(*) FROM Paragraphs cre_Doc_Template_Mgt
+
+SELECT count(*) FROM Paragraphs AS T1 JOIN Documents AS T2 ON T1.document_ID = T2.document_ID WHERE T2.document_name = '夏日游览' cre_Doc_Template_Mgt
+
+SELECT count(*) FROM Paragraphs AS T1 JOIN Documents AS T2 ON T1.document_ID = T2.document_ID WHERE T2.document_name = '夏日游览' cre_Doc_Template_Mgt
+
+SELECT T1.paragraph_id , T1.paragraph_text FROM Paragraphs AS T1 JOIN Documents AS T2 ON T1.document_id = T2.document_id WHERE T2.Document_Name = '上海欢迎你' cre_Doc_Template_Mgt
+
+SELECT T1.paragraph_id , T1.paragraph_text FROM Paragraphs AS T1 JOIN Documents AS T2 ON T1.document_id = T2.document_id WHERE T2.Document_Name = '上海欢迎你' cre_Doc_Template_Mgt
+
+SELECT T1.paragraph_text FROM Paragraphs AS T1 JOIN Documents AS T2 ON T1.document_id = T2.document_id WHERE T2.document_name = "顾客评价" cre_Doc_Template_Mgt
+
+SELECT T1.paragraph_text FROM Paragraphs AS T1 JOIN Documents AS T2 ON T1.document_id = T2.document_id WHERE T2.document_name = "顾客评价" cre_Doc_Template_Mgt
+
+SELECT document_id , count(*) FROM Paragraphs GROUP BY document_id ORDER BY document_id cre_Doc_Template_Mgt
+
+SELECT document_id , count(*) FROM Paragraphs GROUP BY document_id ORDER BY document_id cre_Doc_Template_Mgt
+
+SELECT T1.document_id , T2.document_name , count(*) FROM Paragraphs AS T1 JOIN Documents AS T2 ON T1.document_id = T2.document_id GROUP BY T1.document_id cre_Doc_Template_Mgt
+
+SELECT T1.document_id , T2.document_name , count(*) FROM Paragraphs AS T1 JOIN Documents AS T2 ON T1.document_id = T2.document_id GROUP BY T1.document_id cre_Doc_Template_Mgt
+
+SELECT document_id FROM Paragraphs GROUP BY document_id HAVING count(*) >= 2 cre_Doc_Template_Mgt
+
+SELECT document_id FROM Paragraphs GROUP BY document_id HAVING count(*) >= 2 cre_Doc_Template_Mgt
+
+SELECT T1.document_id , T2.document_name FROM Paragraphs AS T1 JOIN Documents AS T2 ON T1.document_id = T2.document_id GROUP BY T1.document_id ORDER BY count(*) DESC LIMIT 1 cre_Doc_Template_Mgt
+
+SELECT T1.document_id , T2.document_name FROM Paragraphs AS T1 JOIN Documents AS T2 ON T1.document_id = T2.document_id GROUP BY T1.document_id ORDER BY count(*) DESC LIMIT 1 cre_Doc_Template_Mgt
+
+SELECT document_id FROM Paragraphs GROUP BY document_id ORDER BY count(*) ASC LIMIT 1 cre_Doc_Template_Mgt
+
+SELECT document_id FROM Paragraphs GROUP BY document_id ORDER BY count(*) ASC LIMIT 1 cre_Doc_Template_Mgt
+
+SELECT document_id FROM Paragraphs GROUP BY document_id HAVING count(*) BETWEEN 1 AND 2 cre_Doc_Template_Mgt
+
+SELECT document_id FROM Paragraphs GROUP BY document_id HAVING count(*) BETWEEN 1 AND 2 cre_Doc_Template_Mgt
+
+SELECT document_id FROM Paragraphs WHERE paragraph_text = '巴西' INTERSECT SELECT document_id FROM Paragraphs WHERE paragraph_text = '爱尔兰' cre_Doc_Template_Mgt
+
+SELECT document_id FROM Paragraphs WHERE paragraph_text = '巴西' INTERSECT SELECT document_id FROM Paragraphs WHERE paragraph_text = '爱尔兰' cre_Doc_Template_Mgt
+
+SELECT count(*) FROM teacher course_teach
+
+SELECT count(*) FROM teacher course_teach
+
+SELECT Name FROM teacher ORDER BY Age ASC course_teach
+
+SELECT Name FROM teacher ORDER BY Age ASC course_teach
+
+SELECT Age , Hometown FROM teacher course_teach
+
+SELECT Age , Hometown FROM teacher course_teach
+
+SELECT Name FROM teacher WHERE Hometown != "下城区" course_teach
+
+SELECT Name FROM teacher WHERE Hometown != "下城区" course_teach
+
+SELECT Name FROM teacher WHERE Age = 32 OR Age = 33 course_teach
+
+SELECT Name FROM teacher WHERE Age = 32 OR Age = 33 course_teach
+
+SELECT Hometown FROM teacher ORDER BY Age ASC LIMIT 1 course_teach
+
+SELECT Hometown FROM teacher ORDER BY Age ASC LIMIT 1 course_teach
+
+SELECT Hometown , COUNT(*) FROM teacher GROUP BY Hometown course_teach
+
+SELECT Hometown , COUNT(*) FROM teacher GROUP BY Hometown course_teach
+
+SELECT Hometown FROM teacher GROUP BY Hometown ORDER BY COUNT(*) DESC LIMIT 1 course_teach
+
+SELECT Hometown FROM teacher GROUP BY Hometown ORDER BY COUNT(*) DESC LIMIT 1 course_teach
+
+SELECT T3.Name , T2.Course FROM course_arrange AS T1 JOIN course AS T2 ON T1.Course_ID = T2.Course_ID JOIN teacher AS T3 ON T1.Teacher_ID = T3.Teacher_ID course_teach
+
+SELECT T3.Name , T2.Course FROM course_arrange AS T1 JOIN course AS T2 ON T1.Course_ID = T2.Course_ID JOIN teacher AS T3 ON T1.Teacher_ID = T3.Teacher_ID course_teach
+
+SELECT T3.Name , T2.Course FROM course_arrange AS T1 JOIN course AS T2 ON T1.Course_ID = T2.Course_ID JOIN teacher AS T3 ON T1.Teacher_ID = T3.Teacher_ID ORDER BY T3.Name course_teach
+
+SELECT T3.Name , T2.Course FROM course_arrange AS T1 JOIN course AS T2 ON T1.Course_ID = T2.Course_ID JOIN teacher AS T3 ON T1.Teacher_ID = T3.Teacher_ID ORDER BY T3.Name course_teach
+
+SELECT T3.Name FROM course_arrange AS T1 JOIN course AS T2 ON T1.Course_ID = T2.Course_ID JOIN teacher AS T3 ON T1.Teacher_ID = T3.Teacher_ID WHERE T2.Course = "数学" course_teach
+
+SELECT T3.Name FROM course_arrange AS T1 JOIN course AS T2 ON T1.Course_ID = T2.Course_ID JOIN teacher AS T3 ON T1.Teacher_ID = T3.Teacher_ID WHERE T2.Course = "数学" course_teach
+
+SELECT T2.Name , COUNT(*) FROM course_arrange AS T1 JOIN teacher AS T2 ON T1.Teacher_ID = T2.Teacher_ID GROUP BY T2.Name course_teach
+
+SELECT T2.Name , COUNT(*) FROM course_arrange AS T1 JOIN teacher AS T2 ON T1.Teacher_ID = T2.Teacher_ID GROUP BY T2.Name course_teach
+
+SELECT T2.Name FROM course_arrange AS T1 JOIN teacher AS T2 ON T1.Teacher_ID = T2.Teacher_ID GROUP BY T2.Name HAVING COUNT(*) >= 2 course_teach
+
+SELECT T2.Name FROM course_arrange AS T1 JOIN teacher AS T2 ON T1.Teacher_ID = T2.Teacher_ID GROUP BY T2.Name HAVING COUNT(*) >= 2 course_teach
+
+SELECT Name FROM teacher WHERE Teacher_id NOT IN (SELECT Teacher_id FROM course_arrange) course_teach
+
+SELECT Name FROM teacher WHERE Teacher_id NOT IN (SELECT Teacher_id FROM course_arrange) course_teach
+
+SELECT count(*) FROM visitor WHERE age < 30 museum_visit
+
+SELECT name FROM visitor WHERE Level_of_membership > 4 ORDER BY Level_of_membership DESC museum_visit
+
+SELECT avg(age) FROM visitor WHERE Level_of_membership <= 4 museum_visit
+
+SELECT name , Level_of_membership FROM visitor WHERE Level_of_membership > 4 ORDER BY age DESC museum_visit
+
+SELECT museum_id , name FROM museum ORDER BY num_of_staff DESC LIMIT 1 museum_visit
+
+SELECT avg(num_of_staff) FROM museum WHERE open_year < 2009 museum_visit
+
+SELECT Num_of_Staff , Open_Year FROM museum WHERE name = '国家艺术馆' museum_visit
+
+SELECT name FROM museum WHERE num_of_staff > (SELECT min(num_of_staff) FROM museum WHERE open_year > 2010) museum_visit
+
+SELECT t1.id , t1.name , t1.age FROM visitor AS t1 JOIN visit AS t2 ON t1.id = t2.visitor_id GROUP BY t1.id HAVING count(*) > 1 museum_visit
+
+SELECT t2.visitor_id , t1.name , t1.Level_of_membership FROM visitor AS t1 JOIN visit AS t2 ON t1.id = t2.visitor_id GROUP BY t2.visitor_id ORDER BY sum(t2.Total_spent) DESC LIMIT 1 museum_visit
+
+SELECT t2.Museum_ID , t1.name FROM museum AS t1 JOIN visit AS t2 ON t1.Museum_ID = t2.Museum_ID GROUP BY t2.Museum_ID ORDER BY count(*) DESC LIMIT 1 museum_visit
+
+SELECT name FROM museum WHERE Museum_ID NOT IN (SELECT museum_id FROM visit) museum_visit
+
+SELECT t1.name , t1.age FROM visitor AS t1 JOIN visit AS t2 ON t1.id = t2.visitor_id ORDER BY t2.num_of_ticket DESC LIMIT 1 museum_visit
+
+SELECT avg(num_of_ticket) , max(num_of_ticket) FROM visit museum_visit
+
+SELECT sum(t2.Total_spent) FROM visitor AS t1 JOIN visit AS t2 ON t1.id = t2.visitor_id WHERE t1.Level_of_membership = 1 museum_visit
+
+SELECT t1.name FROM visitor AS t1 JOIN visit AS t2 ON t1.id = t2.visitor_id JOIN museum AS t3 ON t3.Museum_ID = t2.Museum_ID WHERE t3.open_year < 2009 INTERSECT SELECT t1.name FROM visitor AS t1 JOIN visit AS t2 ON t1.id = t2.visitor_id JOIN museum AS t3 ON t3.Museum_ID = t2.Museum_ID WHERE t3.open_year > 2011 museum_visit
+
+SELECT count(*) FROM visitor WHERE id NOT IN (SELECT t2.visitor_id FROM museum AS t1 JOIN visit AS t2 ON t1.Museum_ID = t2.Museum_ID WHERE t1.open_year > 2010) museum_visit
+
+SELECT count(*) FROM museum WHERE open_year > 2013 OR open_year < 2008 museum_visit
+
+SELECT count(*) FROM head WHERE age > 56 department_management
+
+SELECT name , born_state , age FROM head ORDER BY age department_management
+
+SELECT creation , name , budget_in_billions FROM department department_management
+
+SELECT max(budget_in_billions) , min(budget_in_billions) FROM department department_management
+
+SELECT avg(num_employees) FROM department WHERE ranking BETWEEN 10 AND 15 department_management
+
+SELECT name FROM head WHERE born_state != '浙江' department_management
+
+SELECT DISTINCT T1.creation FROM department AS T1 JOIN management AS T2 ON T1.department_id = T2.department_id JOIN head AS T3 ON T2.head_id = T3.head_id WHERE T3.born_state = '河南' department_management
+
+SELECT born_state FROM head GROUP BY born_state HAVING count(*) >= 3 department_management
+
+SELECT creation FROM department GROUP BY creation ORDER BY count(*) DESC LIMIT 1 department_management
+
+SELECT T1.name , T1.num_employees FROM department AS T1 JOIN management AS T2 ON T1.department_id = T2.department_id WHERE T2.temporary_acting = '是' department_management
+
+SELECT count(DISTINCT temporary_acting) FROM management department_management
+
+SELECT count(*) FROM department WHERE department_id NOT IN (SELECT department_id FROM management); department_management
+
+SELECT DISTINCT T1.age FROM management AS T2 JOIN head AS T1 ON T1.head_id = T2.head_id WHERE T2.temporary_acting = '是' department_management
+
+SELECT T3.born_state FROM department AS T1 JOIN management AS T2 ON T1.department_id = T2.department_id JOIN head AS T3 ON T2.head_id = T3.head_id WHERE T1.name = '财政部' INTERSECT SELECT T3.born_state FROM department AS T1 JOIN management AS T2 ON T1.department_id = T2.department_id JOIN head AS T3 ON T2.head_id = T3.head_id WHERE T1.name = '国土安全部' department_management
+
+SELECT T1.department_id , T1.name , count(*) FROM management AS T2 JOIN department AS T1 ON T1.department_id = T2.department_id GROUP BY T1.department_id HAVING count(*) > 1 department_management
+
+SELECT head_id , name FROM head WHERE name LIKE '强' department_management
+
+SELECT count(*) FROM farm farm
+
+SELECT count(*) FROM farm farm
+
+SELECT Total_Horses FROM farm ORDER BY Total_Horses ASC farm
+
+SELECT Total_Horses FROM farm ORDER BY Total_Horses ASC farm
+
+SELECT Hosts FROM farm_competition WHERE Theme != '外星人' farm
+
+SELECT Hosts FROM farm_competition WHERE Theme != '外星人' farm
+
+SELECT Theme FROM farm_competition ORDER BY YEAR ASC farm
+
+SELECT Theme FROM farm_competition ORDER BY YEAR ASC farm
+
+SELECT avg(Working_Horses) FROM farm WHERE Total_Horses > 5000 farm
+
+SELECT avg(Working_Horses) FROM farm WHERE Total_Horses > 5000 farm
+
+SELECT max(Cows) , min(Cows) FROM farm farm
+
+SELECT max(Cows) , min(Cows) FROM farm farm
+
+SELECT count(DISTINCT Status) FROM city farm
+
+SELECT count(DISTINCT Status) FROM city farm
+
+SELECT Official_Name FROM city ORDER BY Population DESC farm
+
+SELECT Official_Name FROM city ORDER BY Population DESC farm
+
+SELECT Official_Name , Status FROM city ORDER BY Population DESC LIMIT 1 farm
+
+SELECT Official_Name , Status FROM city ORDER BY Population DESC LIMIT 1 farm
+
+SELECT T2.Year , T1.Official_Name FROM city AS T1 JOIN farm_competition AS T2 ON T1.City_ID = T2.Host_city_ID farm
+
+SELECT T2.Year , T1.Official_Name FROM city AS T1 JOIN farm_competition AS T2 ON T1.City_ID = T2.Host_city_ID farm
+
+SELECT T1.Official_Name FROM city AS T1 JOIN farm_competition AS T2 ON T1.City_ID = T2.Host_city_ID GROUP BY T2.Host_city_ID HAVING COUNT(*) > 1 farm
+
+SELECT T1.Official_Name FROM city AS T1 JOIN farm_competition AS T2 ON T1.City_ID = T2.Host_city_ID GROUP BY T2.Host_city_ID HAVING COUNT(*) > 1 farm
+
+SELECT T1.Status FROM city AS T1 JOIN farm_competition AS T2 ON T1.City_ID = T2.Host_city_ID GROUP BY T2.Host_city_ID ORDER BY COUNT(*) DESC LIMIT 1 farm
+
+SELECT T1.Status FROM city AS T1 JOIN farm_competition AS T2 ON T1.City_ID = T2.Host_city_ID GROUP BY T2.Host_city_ID ORDER BY COUNT(*) DESC LIMIT 1 farm
+
+SELECT T2.Theme FROM city AS T1 JOIN farm_competition AS T2 ON T1.City_ID = T2.Host_city_ID WHERE T1.Population > 1000 farm
+
+SELECT T2.Theme FROM city AS T1 JOIN farm_competition AS T2 ON T1.City_ID = T2.Host_city_ID WHERE T1.Population > 1000 farm
+
+SELECT Status , avg(Population) FROM city GROUP BY Status farm
+
+SELECT Status , avg(Population) FROM city GROUP BY Status farm
+
+SELECT Status FROM city GROUP BY Status ORDER BY COUNT(*) ASC farm
+
+SELECT Status FROM city GROUP BY Status ORDER BY COUNT(*) ASC farm
+
+SELECT Status FROM city GROUP BY Status ORDER BY COUNT(*) DESC LIMIT 1 farm
+
+SELECT Status FROM city GROUP BY Status ORDER BY COUNT(*) DESC LIMIT 1 farm
+
+SELECT Status FROM city WHERE Population > 1500 INTERSECT SELECT Status FROM city WHERE Population < 500 farm
+
+SELECT Status FROM city WHERE Population > 1500 INTERSECT SELECT Status FROM city WHERE Population < 500 farm
+
+SELECT Official_Name FROM city WHERE Population > 1500 OR Population < 500 farm
+
+SELECT Official_Name FROM city WHERE Population > 1500 OR Population < 500 farm
+
+SELECT Census_Ranking FROM city WHERE Status != "乡村" farm
+
+SELECT Census_Ranking FROM city WHERE Status != "乡村" farm
